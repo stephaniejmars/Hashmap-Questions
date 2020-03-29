@@ -1,3 +1,3 @@
 def intersection(list1, list2)
-  raise NotImplementedError, "Intersection not implemented"
+  intersect = list1 & list2
 end
