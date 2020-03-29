@@ -1,13 +1,19 @@
 
 def palindrome_permutation?(string)
-  singles = []
-  string.chars.each do |char|
-    if string.count(char).odd?
-      singles << char
-      string.slice!(char)
-    end 
+  
+  letter_hash = {}
+  string.chars.map do |char|
+    letter_hash["#{char}"] = string.count(char)
   end
+  
+  odd_count = 0
+  letter_hash.each do |key, value|
+    if value.odd?
+      odd_count += 1
+    end
+  end
+  
+  odd_count > 1 ? (return false) : (return true) 
 
-  return false if singles.length > 1
-  return true
 end
+
